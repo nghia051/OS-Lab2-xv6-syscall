@@ -173,7 +173,6 @@ syscall(void)
     // and store its return value in p->trapframe->a0
     p->trapframe->a0 = syscalls[num]();
     if (p->syscall_trace & (1 << num)) {
-      // printf("%d: syscall %d -> %d\n", p->pid, syscall_names[num - 1], p->trapframe->a0);
       printf("%d: syscall %s -> %d\n", p->pid, syscall_names[num], p->trapframe->a0);
     }
   } else {
